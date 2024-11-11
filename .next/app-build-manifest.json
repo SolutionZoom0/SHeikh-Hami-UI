@@ -26,26 +26,8 @@
       "static/chunks/main-app-8d6024a756b4d588.js",
       "static/chunks/453-a2bf6ec197286281.js",
       "static/chunks/153-8feefd2596ef4309.js",
-      "static/chunks/310-ab0c5ef14631c8b7.js",
+      "static/chunks/310-8b2cddde9f9f8008.js",
       "static/chunks/app/about/page-e3271d9509f8b623.js"
-    ],
-    "/blog/page": [
-      "static/chunks/webpack-986ca0f207d1d1b0.js",
-      "static/chunks/fd9d1056-fe7f88dea095b639.js",
-      "static/chunks/23-33280cc367cbf310.js",
-      "static/chunks/main-app-8d6024a756b4d588.js",
-      "static/chunks/453-a2bf6ec197286281.js",
-      "static/chunks/310-ab0c5ef14631c8b7.js",
-      "static/chunks/app/blog/page-d72c0aa986618d93.js"
-    ],
-    "/article/page": [
-      "static/chunks/webpack-986ca0f207d1d1b0.js",
-      "static/chunks/fd9d1056-fe7f88dea095b639.js",
-      "static/chunks/23-33280cc367cbf310.js",
-      "static/chunks/main-app-8d6024a756b4d588.js",
-      "static/chunks/453-a2bf6ec197286281.js",
-      "static/chunks/310-ab0c5ef14631c8b7.js",
-      "static/chunks/app/article/page-a3f9ddf896524550.js"
     ],
     "/contact/page": [
       "static/chunks/webpack-986ca0f207d1d1b0.js",
@@ -54,17 +36,26 @@
       "static/chunks/main-app-8d6024a756b4d588.js",
       "static/chunks/453-a2bf6ec197286281.js",
       "static/chunks/24-b8a88b92de2a12af.js",
-      "static/chunks/310-ab0c5ef14631c8b7.js",
+      "static/chunks/310-8b2cddde9f9f8008.js",
       "static/chunks/app/contact/page-f3aa085a680ada40.js"
     ],
-    "/portfolio-details/page": [
+    "/blog/page": [
       "static/chunks/webpack-986ca0f207d1d1b0.js",
       "static/chunks/fd9d1056-fe7f88dea095b639.js",
       "static/chunks/23-33280cc367cbf310.js",
       "static/chunks/main-app-8d6024a756b4d588.js",
       "static/chunks/453-a2bf6ec197286281.js",
-      "static/chunks/310-ab0c5ef14631c8b7.js",
-      "static/chunks/app/portfolio-details/page-72e49c8bdf861e98.js"
+      "static/chunks/310-8b2cddde9f9f8008.js",
+      "static/chunks/app/blog/page-35cf8ff4545579e6.js"
+    ],
+    "/article/page": [
+      "static/chunks/webpack-986ca0f207d1d1b0.js",
+      "static/chunks/fd9d1056-fe7f88dea095b639.js",
+      "static/chunks/23-33280cc367cbf310.js",
+      "static/chunks/main-app-8d6024a756b4d588.js",
+      "static/chunks/453-a2bf6ec197286281.js",
+      "static/chunks/310-8b2cddde9f9f8008.js",
+      "static/chunks/app/article/page-6913cc3ce0e65668.js"
     ],
     "/page": [
       "static/chunks/webpack-986ca0f207d1d1b0.js",
@@ -72,8 +63,17 @@
       "static/chunks/23-33280cc367cbf310.js",
       "static/chunks/main-app-8d6024a756b4d588.js",
       "static/chunks/453-a2bf6ec197286281.js",
-      "static/chunks/310-ab0c5ef14631c8b7.js",
+      "static/chunks/310-8b2cddde9f9f8008.js",
       "static/chunks/app/page-308df447b24a49e0.js"
+    ],
+    "/portfolio-details/page": [
+      "static/chunks/webpack-986ca0f207d1d1b0.js",
+      "static/chunks/fd9d1056-fe7f88dea095b639.js",
+      "static/chunks/23-33280cc367cbf310.js",
+      "static/chunks/main-app-8d6024a756b4d588.js",
+      "static/chunks/453-a2bf6ec197286281.js",
+      "static/chunks/310-8b2cddde9f9f8008.js",
+      "static/chunks/app/portfolio-details/page-72e49c8bdf861e98.js"
     ],
     "/portfolio/page": [
       "static/chunks/webpack-986ca0f207d1d1b0.js",
@@ -81,8 +81,8 @@
       "static/chunks/23-33280cc367cbf310.js",
       "static/chunks/main-app-8d6024a756b4d588.js",
       "static/chunks/453-a2bf6ec197286281.js",
-      "static/chunks/310-ab0c5ef14631c8b7.js",
-      "static/chunks/app/portfolio/page-c0ce14d7336b97c4.js"
+      "static/chunks/310-8b2cddde9f9f8008.js",
+      "static/chunks/app/portfolio/page-88988292401e52d9.js"
     ],
     "/services/page": [
       "static/chunks/webpack-986ca0f207d1d1b0.js",
@@ -92,7 +92,7 @@
       "static/chunks/453-a2bf6ec197286281.js",
       "static/chunks/153-8feefd2596ef4309.js",
       "static/chunks/24-b8a88b92de2a12af.js",
-      "static/chunks/310-ab0c5ef14631c8b7.js",
+      "static/chunks/310-8b2cddde9f9f8008.js",
       "static/chunks/app/services/page-b31bf5c29dcd83bc.js"
     ]
   }

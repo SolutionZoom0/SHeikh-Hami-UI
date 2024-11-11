@@ -30,14 +30,14 @@ const Header = () => {
     },
     {
       id: 3,
-      title: "Services",
+      title: "Videos",
       href: "services",
       activeUrlPath: ["services"],
       svg: "/assets/img/icons/services.svg",
     },
     {
       id: 4,
-      title: "Portfolio",
+      title: "Books",
       href: "portfolio",
       activeUrlPath: ["portfolio", "portfolio-details"],
       svg: "/assets/img/icons/portfolio.svg",
@@ -51,7 +51,7 @@ const Header = () => {
     },
     {
       id: 6,
-      title: "Contact",
+      title: "Q & A",
       href: "contact",
       activeUrlPath: ["contact"],
       svg: "/assets/img/icons/contact.svg",
@@ -88,7 +88,7 @@ const Header = () => {
                   />
                 </svg>
                 <span>
-                  Bento<span className="primary">Folio</span>
+                  Sheikh<span className="primary">Hami</span>
                 </span>
               </Link>
             </div>

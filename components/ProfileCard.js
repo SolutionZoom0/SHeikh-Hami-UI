@@ -34,8 +34,11 @@ const ProfileCard = () => {
         <div className="text">
           <h3 className="card-title">Sheikh Hami 👋</h3>
           <p>
-            A Scholar of Arabic Studies and Islamic Jurisprudence Early Life and
-            Education.
+            Sheikh Mohammad Hami, a scholar of Arabic studies and Islamic
+            jurisprudence, has authored influential works and inspired many
+            through his teaching. With a foundation from Al-Azhar University, he
+            connects classical Islamic knowledge to modern contexts while
+            serving his community.
           </p>
           <div className="common-button-groups">
             <a className="btn btn-call" href="#">
