@@ -67,7 +67,7 @@ body {
   color: var(--black);
   overflow-x: hidden;
   background-color: var(--background);
-  padding: 24px 0 24px 0;
+  padding: 24px 0 10px 0;
   min-height: 100vh;
 }
 
@@ -399,7 +399,7 @@ p {
 ===============================*/
 
 .home-area {
-  margin-top: 24px;
+  margin-top: 15px;
 }
 
 .card {
@@ -407,11 +407,10 @@ p {
   background-color: var(--white);
   box-shadow: 0 1px 2px 0 rgba(26, 31, 44, 0.25);
   border-radius: 16px;
-  height: 100%;
 }
 
 .card-body {
-  padding: 24px;
+  padding: 16px;
 }
 
 .profile-card .image {
@@ -507,7 +506,7 @@ p {
 }
 
 .social-media-icon {
-  margin-top: 30px;
+  margin-top: 32px;
 }
 
 .social-media-icon ul li {
@@ -599,7 +598,7 @@ p {
 
 .work-experiance-card {
   overflow: hidden;
-  height: 299px;
+  height: 199px;
 }
 
 .work-experiance-card .work-experiance-main {
@@ -2105,7 +2104,7 @@ p {
 ===============================*/
 
 .footer-area {
-  padding-top: 24px;
+  padding-top: 10px;
 }
 
 .footer-area .text p {

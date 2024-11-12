@@ -44,14 +44,14 @@ const Header = () => {
     },
     {
       id: 5,
-      title: "Blog",
+      title: "Articles",
       href: "blog",
       activeUrlPath: ["blog", "article"],
       svg: "/assets/img/icons/blog.svg",
     },
     {
       id: 6,
-      title: "Q & A",
+      title: "Fatawas",
       href: "contact",
       activeUrlPath: ["contact"],
       svg: "/assets/img/icons/contact.svg",
@@ -224,7 +224,7 @@ const Header = () => {
                   </span>
                 </button>
                 <Link href="contact" className="lets-talk-btn">
-                  Let's Talk
+                  Ask Sheikh
                   <svg
                     className="icon"
                     width={20}

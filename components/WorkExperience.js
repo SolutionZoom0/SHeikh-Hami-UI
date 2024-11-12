@@ -57,8 +57,20 @@ const WorkExperience = ({ title }) => {
       <div className="card-body work-experiance-card">
         <h3 className="card-title">{title}</h3>
         <div className="work-experiance-main">
-          <Experience />
-          <Experience />
+          {title === "Videos" && (
+            <p>
+              Sheikh Hami Videos Sheikh Hami Videos Sheikh Hami Videos Sheikh
+              Hami Videos Sheikh Hami Videos Sheikh Hami Videos Sheikh Hami
+              Videos
+            </p>
+          )}
+          {title === "Books" && (
+            <p>
+              Sheikh Hami Books Sheikh Hami Books Sheikh Hami Books Sheikh Hami
+              Books Sheikh Hami Books Sheikh Hami Books Sheikh Hami Books
+            </p>
+          )}
+          {title !== "Videos" && title !== "Books" && <Experience />}
         </div>
       </div>
     </div>
