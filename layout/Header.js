@@ -52,8 +52,8 @@ const Header = () => {
     {
       id: 6,
       title: "Fatawas",
-      href: "contact",
-      activeUrlPath: ["contact"],
+      href: "fatawa",
+      activeUrlPath: ["fatawa"],
       svg: "/assets/img/icons/contact.svg",
     },
   ];

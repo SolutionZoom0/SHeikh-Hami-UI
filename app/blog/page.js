@@ -4,49 +4,49 @@ const page = () => {
   const blogItems = [
     {
       id: 1,
-      title: "Want To Upgrade Your Brain? Stop Doing These 7 Things",
+      title: "Are you new muslim? Learn more about prophet of Islam",
       img: "assets/img/blog/blog-img-1.jpg",
-      category: "Development",
+      category: "Feqh",
       date: "Nov 6, 2023",
       readingTime: "15 min",
     },
     {
       id: 2,
-      title: "Want To Upgrade Your Brain? Stop Doing These 7 Things",
+      title: "Are you new muslim? Learn more about prophet of Islam",
       img: "assets/img/blog/blog-img-2.jpg",
-      category: "Development",
+      category: "Seerah",
       date: "Nov 6, 2023",
       readingTime: "15 min",
     },
     {
       id: 3,
-      title: "Want To Upgrade Your Brain? Stop Doing These 7 Things",
+      title: "Are you new muslim? Learn more about prophet of Islam",
       img: "assets/img/blog/blog-img-3.jpg",
-      category: "Development",
+      category: "Hadeeth",
       date: "Nov 6, 2023",
       readingTime: "15 min",
     },
     {
       id: 4,
-      title: "Want To Upgrade Your Brain? Stop Doing These 7 Things",
+      title: "Are you new muslim? Learn more about prophet of Islam",
       img: "assets/img/blog/blog-img-4.jpg",
-      category: "Development",
+      category: "Tawheed",
       date: "Nov 6, 2023",
       readingTime: "15 min",
     },
     {
       id: 5,
-      title: "Want To Upgrade Your Brain? Stop Doing These 7 Things",
+      title: "Are you new muslim? Learn more about prophet of Islam",
       img: "assets/img/blog/blog-img-5.jpg",
-      category: "Development",
+      category: "Islamic History",
       date: "Nov 6, 2023",
       readingTime: "15 min",
     },
     {
       id: 6,
-      title: "Want To Upgrade Your Brain? Stop Doing These 7 Things",
+      title: "Are you new muslim? Learn more about prophet of Islam",
       img: "assets/img/blog/blog-img-6.jpg",
-      category: "Development",
+      category: "Kids",
       date: "Nov 6, 2023",
       readingTime: "15 min",
     },
@@ -58,14 +58,7 @@ const page = () => {
           <div className="card-body portfolio-card">
             <div className="top-info">
               <div className="text">
-                <h1 className="main-title">
-                  My Recent Article and Publications
-                </h1>
-                <p>
-                  I'm here to help if you're searching for a product designer to
-                  bring your idea to life or a design partner to help take your
-                  business to the next level.
-                </p>
+                <h1 className="main-title">Recent Articles and Publications</h1>
               </div>
             </div>
             <div className="article-publications article-area">

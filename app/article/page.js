@@ -21,7 +21,7 @@ const page = () => {
               </ul>
               <div className="article-details-text">
                 <h3 className="main-title">
-                  Want To Upgrade Your Brain? Stop Doing 7 Things
+                  Learn More about Prophet of Islam
                 </h3>
                 <p>
                   Mastering the Art of Email Marketing tips for Success pattern

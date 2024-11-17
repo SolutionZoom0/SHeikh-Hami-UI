@@ -75,7 +75,7 @@ const WorkExperience = ({ title }) => {
             <p>
               Al-Sheikh Mohammad Motaz wrote Echoes of Eternity, Hashia in
               Hanafi Fiqh, Women of Wisdom, A Concise Guide to Islam, and Bond
-              of Brotherhood. He created over 399 stories for kids, visit his{" "}
+              of Brotherhood. He created over 399 stories for kids, visit the{" "}
               <a
                 href="https://www.amazon.com/stores/author/B0CP8JB79N/allbooks"
                 target="_blank"
