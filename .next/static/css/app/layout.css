@@ -1358,14 +1358,14 @@ body {
 }
 
 .content-box-card .card-body {
-  padding: 48px 40px 40px;
+  padding: 24px 20px 20px;
 }
 
 .content-box-card .top-info {
   display: flex;
-  gap: 40px;
+  gap: 20px;
   justify-content: space-between;
-  margin-bottom: 48px;
+  margin-bottom: 24px;
 }
 
 .content-box-card .top-info .text {
@@ -2554,10 +2554,6 @@ body {
 
 .article-details-area .related-post .article-publications-item {
   margin: 0;
-}
-
-.leave-comments-area {
-  margin-top: 54px;
 }
 
 .leave-comments-area .comments-box {

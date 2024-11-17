@@ -97,7 +97,7 @@ const ContactForm = () => {
                 />
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-12">
               <div className="mb-4">
                 <label className="form-label">Subject</label>
                 <input
@@ -111,43 +111,23 @@ const ContactForm = () => {
                 />
               </div>
             </div>
-            <div className="col-md-6">
-              <div className="mb-4">
-                <label className="form-label">Budget</label>
-                <select
-                  name="budget"
-                  onChange={(e) => onChange(e)}
-                  value={budget}
-                  required=""
-                  className="form-select shadow-none"
-                  defaultValue={"select"}
-                >
-                  <option disabled={true} value={"select"}>
-                    Select budget...
-                  </option>
-                  <option value="$5000">$5000</option>
-                  <option value="$5000 - $1000">$5000 - $10000</option>
-                  <option value="$10000 - $2000">$10000 - $20000</option>
-                  <option value="$20000">$20000+</option>
-                </select>
-              </div>
-            </div>
+
             <div className="col-md-12">
               <div className="mb-4">
-                <label className="form-label">Comment</label>
+                <label className="form-label">Question</label>
                 <textarea
                   name="message"
                   onChange={(e) => onChange(e)}
                   value={message}
                   className="form-control shadow-none"
                   rows={4}
-                  placeholder="Type details about your inquiry"
+                  placeholder="Type details about your question"
                 />
               </div>
             </div>
             <div className="col-md-12">
               <button className="submit-btn" type="submit">
-                Send Message
+                Ask Al-Sheikh
                 <svg
                   className="icon"
                   width={20}
