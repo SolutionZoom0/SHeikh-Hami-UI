@@ -6,13 +6,45 @@ import WorkTogether from "@/components/WorkTogether";
 import BentoFolioLayout from "@/layout/BentoFolioLayout";
 const page = () => {
   const counterItems = [
-    { id: 1, title: "Year of Experience", value: 40 },
-    { id: 2, title: "Project Completed", value: 86 },
-    { id: 3, title: "Happy Client", value: 72 },
+    { id: 1, title: "Videos", value: 50 },
+    { id: 2, title: "Books", value: 400 },
+    { id: 3, title: "Articles", value: 75 },
   ];
   const about = {
-    name: "Sheikh Hami",
-    bio: " A Passionate <b>Full Stack Developer</b> 🖥️ &amp; <b>Product Designer</b> having <b>12 years </b> of Experiences over 24+ Country Worldwide.",
+    name: "Sheikh Motaz",
+    bio: `
+Scholar of Arabic Studies and Islamic Jurisprudence<br><br>
+
+<b>Early Life and Education</b><br>
+Born into a family that cherished education and religious scholarship, Mohammad Hami exhibited a passion for Islamic studies and the Arabic language from an early age. His quest for knowledge led him to some of the most prestigious institutions in the Islamic world.
+<br><br>
+Hami’s academic journey began at Al-Azhar University, a revered center of Islamic learning, where he earned his bachelor’s degree in Islamic studies. Building on this foundation, he pursued a master’s degree in Fiqh (Islamic jurisprudence) at Al-Azhar, specializing in the interpretation and application of Islamic law. Seeking to deepen his expertise, he then embarked on a PhD in Arabic Studies at Beirut University in collaboration with Al-Azhar, focusing his research on the linguistic and rhetorical intricacies of classical Arabic texts.
+<br><br>
+<b>Contributions and Achievements</b><br>
+Mohammad Hami has made notable contributions to Arabic studies and Islamic jurisprudence. His scholarly works are well-regarded in academic circles, and he has authored several influential books that reflect his profound understanding of Islamic traditions and the Arabic language:
+<br>
+Echoes of Eternity: Timeless Tales from the Quran — A 273-page exploration that brings Quranic stories to life with deep insights and reflections.
+<br>
+Hashia in Hanafi Fiqh — A comprehensive 353-page commentary titled "حاشية على شرح مجمع البحرين," serving as a critical reference in Hanafi jurisprudence.
+<br>
+Women of Wisdom: The Role of Women Between Islam and Western Society — A 133-page examination of women’s contributions in Islamic history, juxtaposed with Western perspectives.
+<br>
+A Concise Guide to Islam — A 55-page introductory guide outlining essential Islamic concepts and terms, accessible for newcomers.
+<br>
+Bond of Brotherhood: Al-Sahaba and the Prophet's Mission — A detailed account of the Prophet Muhammad's companions and their pivotal roles in early Islam.
+<br>
+From the Golden Age to Today: The Impact of Muslim Scientist-Inventors — An exploration of the enduring influence of Muslim scientists from the Islamic Golden Age to modern times.
+<br>
+More Than 665 Children's Stories — An extensive collection designed to impart Islamic values and teachings to young readers, available for purchase on Amazon.
+<br><br>
+<b>Teaching and Mentorship</b><br>
+Beyond his research, Mohammad Hami has devoted much of his career to teaching and mentoring. As a respected professor, he has inspired countless students in Islamic studies and the Arabic language. Known for his approachable teaching style and vast knowledge, he continues to shape the next generation of scholars.
+<br><br>
+<b>Legacy and Vision</b><br>
+Mohammad Hami remains a key figure in academic and religious communities. His dedication to Arabic and Islamic jurisprudence exemplifies his commitment to preserving and modernizing classical scholarship. His work addresses contemporary issues while honoring Islamic traditions, making them accessible and relevant today.
+<br><br>
+<b>Personal Life</b><br>
+Despite his demanding academic career, Hami is known for his humility and commitment to community service. Actively participating in educational and charitable initiatives, he seeks to give back and promote understanding and knowledge. His life’s work reflects a dedication to Islamic scholarship and a vision for a more informed and enlightened world. `,
   };
 
   return (
@@ -23,14 +55,9 @@ const page = () => {
             <div className="top-info">
               <div className="text">
                 <h1 className="main-title">
-                  Hi, This Is <span>{about.name}</span> 👋
+                  <span>{about.name}</span>
                 </h1>
                 <p dangerouslySetInnerHTML={{ __html: about.bio }}></p>
-              </div>
-              <div className="available-btn">
-                <span>
-                  <i className="fas fa-circle" /> Available For Hire
-                </span>
               </div>
             </div>
             <div className="counter-area">
@@ -42,50 +69,7 @@ const page = () => {
                   </div>
                 ))}
               </div>
-              <div className="circle-area">
-                <div className="circle-text">
-                  <img
-                    className="circle-image"
-                    src="assets/img/about-us/circle-text.svg"
-                    alt="circle-text"
-                  />
-                  <img
-                    className="circle-image circle-image-light d-none"
-                    src="assets/img/about-us/circle-text-light.svg"
-                    alt="circle-text"
-                  />
-                  <span className="arrow-down">
-                    <svg
-                      width={40}
-                      height={40}
-                      viewBox="0 0 40 40"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M20 5V35"
-                        stroke="white"
-                        strokeWidth={2}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M15 30L20 35L25 30"
-                        stroke="white"
-                        strokeWidth={2}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
             </div>
-            <Brands />
-            <Testimonial />
-            <Awards />
-            <BlogSlider />
-            <WorkTogether />
           </div>
         </div>
       </div>

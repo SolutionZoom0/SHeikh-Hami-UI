@@ -1370,7 +1370,6 @@ body {
 
 .content-box-card .top-info .text {
   flex-grow: 1;
-  max-width: 540px;
   width: 100%;
 }
 
