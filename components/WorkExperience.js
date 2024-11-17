@@ -59,15 +59,29 @@ const WorkExperience = ({ title }) => {
         <div className="work-experiance-main">
           {title === "Videos" && (
             <p>
-              Sheikh Hami Videos Sheikh Hami Videos Sheikh Hami Videos Sheikh
-              Hami Videos Sheikh Hami Videos Sheikh Hami Videos Sheikh Hami
-              Videos
+              Al-Sheikh Mohammad Motaz has launched a weekly series at the
+              Roswell Community Center, where he explains Al-Majmoo by Imam
+              Al-Nawawi. To watch these episodes, visit his{" "}
+              <a
+                href="https://www.youtube.com/playlist?list=PLBN2NiezF7VHMG_pFlnzRCrffOreJNS5t"
+                target="_blank"
+              >
+                {" "}
+                Youtube channel{" "}
+              </a>
             </p>
           )}
           {title === "Books" && (
             <p>
-              Sheikh Hami Books Sheikh Hami Books Sheikh Hami Books Sheikh Hami
-              Books Sheikh Hami Books Sheikh Hami Books Sheikh Hami Books
+              Al-Sheikh Mohammad Motaz wrote Echoes of Eternity, Hashia in
+              Hanafi Fiqh, Women of Wisdom, A Concise Guide to Islam, and Bond
+              of Brotherhood. He created over 399 stories for kids, visit his{" "}
+              <a
+                href="https://www.amazon.com/stores/author/B0CP8JB79N/allbooks"
+                target="_blank"
+              >
+                Book Store
+              </a>
             </p>
           )}
           {title !== "Videos" && title !== "Books" && <Experience />}

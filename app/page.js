@@ -22,7 +22,7 @@ const page = () => {
             <WorkExperience title="Books" />
           </div>
           <div className="col-lg-12">
-            <WorkExperience title="Q & A" />
+            <WorkExperience title="Fatawas" />
           </div>
         </div>
       </div>

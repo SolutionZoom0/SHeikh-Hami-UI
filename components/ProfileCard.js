@@ -47,9 +47,9 @@ const ProfileCard = () => {
           <img src="assets/img/images/profile.png" alt="profile" width="60%" />
         </div>
         <div className="text">
-          <h3 className="card-title">Sheikh Hami 👋</h3>
+          <h3 className="card-title">Al-Sheikh Motaz</h3>
           <p>
-            Sheikh Mohammad Hami, a scholar of Arabic studies and Islamic
+            Sheikh Mohammad Motaz, a scholar of Arabic studies and Islamic
             jurisprudence.
           </p>
           <div className="social-media-icon">
