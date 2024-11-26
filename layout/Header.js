@@ -45,7 +45,7 @@ const Header = () => {
     {
       id: 5,
       title: "Articles",
-      href: "blog",
+      href: "blog/1",
       activeUrlPath: ["blog", "article"],
       svg: "/assets/img/icons/blog.svg",
     },
@@ -76,7 +76,7 @@ const Header = () => {
             <div className="logo">
               <Link className="navbar-brand me-0" href="/">
                 <span>
-                  Al-Sheikh<span className="primary">Motaz</span>
+                  Al-Sheikh <span className="primary"> Motaz</span>
                 </span>
               </Link>
             </div>
@@ -88,7 +88,7 @@ const Header = () => {
               <div className="logo inner-logo d-block d-xl-none">
                 <Link className="navbar-brand me-0" href="/">
                   <span>
-                    Al-Sheikh<span className="primary">Motaz</span>
+                    Al-Sheikh <span className="primary">Motaz</span>
                   </span>
                 </Link>
               </div>

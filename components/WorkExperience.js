@@ -2,30 +2,26 @@ const Experience = () => {
   const experiancesItems = [
     {
       id: 1,
-      title: "Adobe",
-      subTitle: "Senior UI UX Designer",
-      icon: "/assets/img/icons/adobe.svg",
+      title: "Feqh",
+      subTitle: "Learn islam rule basics for kids",
       date: "2021-2024",
     },
     {
       id: 2,
-      title: "Google Inc.",
-      subTitle: "Senior Product Designer",
-      icon: "/assets/img/icons/google.svg",
+      title: "Feqh",
+      subTitle: "Learn islam rule basics for kids",
       date: "2019-2021",
     },
     {
       id: 3,
-      title: "Meta Inc.",
-      subTitle: "Product Designer",
-      icon: "/assets/img/icons/meta.svg",
+      title: "Feqh",
+      subTitle: "Learn islam rule basics for kids",
       date: "2018-2019",
     },
     {
       id: 4,
-      title: "Adobe",
-      subTitle: "Senior UI UX Designer",
-      icon: "/assets/img/icons/adobe.svg",
+      title: "Feqh",
+      subTitle: "Learn islam rule basics for kids",
       date: "2017-2018",
     },
   ];
@@ -37,9 +33,6 @@ const Experience = () => {
             <p>{item.date}</p>
           </div>
           <div className="info">
-            <div className="icon">
-              <img src={item.icon} alt="adobe" />
-            </div>
             <div className="text">
               <h4 className="title">{item.title}</h4>
               <h6 className="subtitle">{item.subTitle}</h6>

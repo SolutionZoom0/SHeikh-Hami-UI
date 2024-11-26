@@ -1,7 +1,6 @@
 {
-  "/blog/page": "app/blog/page.js",
-  "/page": "app/page.js",
-  "/about/page": "app/about/page.js",
-  "/services/page": "app/services/page.js",
-  "/fatawa/page": "app/fatawa/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/blog/[page]/page": "app/blog/[page]/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js"
 }

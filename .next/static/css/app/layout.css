@@ -918,7 +918,7 @@ p {
 .header-area .header-right-info .lets-talk-btn {
   background-color: var(--black);
   border-radius: 8px;
-  padding: 12px 10px;
+  padding: 12px 8px;
   font-size: 16px;
   font-weight: 600;
   color: var(--white);

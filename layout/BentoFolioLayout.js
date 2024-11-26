@@ -8,10 +8,7 @@ const BentoFolioLayout = ({ children, homePage = false }) => {
   return (
     <Fragment>
       <ImageView />
-      {/* header part start */}
       <Header />
-      {/* header part end */}
-      {/* main area part start */}
       <main>
         <section className={homePage ? "home-area" : "content-box-area mt-4"}>
           <div className="container">
@@ -23,14 +20,9 @@ const BentoFolioLayout = ({ children, homePage = false }) => {
             </div>
           </div>
         </section>
-        {/* background shape area start */}
         <Shape />
-        {/* background shape area end */}
       </main>
-      {/* main area part end */}
-      {/* footer part start */}
       <Footer />
-      {/* footer part end */}
     </Fragment>
   );
 };
