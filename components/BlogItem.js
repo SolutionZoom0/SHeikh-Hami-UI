@@ -5,12 +5,12 @@ const BlogItem = ({ item }) => {
     <div className="col-lg-6" key={item.id}>
       <div className="article-publications-item">
         <div className="text">
-          <Link href="#" className="title">
+          <Link href={item.URL} target="_blank" className="title">
             {item.title}
           </Link>
           <ul className="list-unstyled">
-            <li>{item.readingTime} read</li>
-            <li>{item.date}</li>
+            <li>{item.duration} read</li>
+            <li>{item.publishDate}</li>
           </ul>
         </div>
       </div>

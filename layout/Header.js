@@ -45,7 +45,7 @@ const Header = () => {
     {
       id: 5,
       title: "Articles",
-      href: "blog/1",
+      href: "blog",
       activeUrlPath: ["blog", "article"],
       svg: "/assets/img/icons/blog.svg",
     },
