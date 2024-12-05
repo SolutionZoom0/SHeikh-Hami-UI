@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import BlogItem from "@/components/BlogItem";
 import BentoFolioLayout from "@/layout/BentoFolioLayout";
+import Link from "next/link";
 
 const POSTS_PER_PAGE = 10;
 
@@ -58,14 +59,42 @@ export default function BlogPage() {
         <div className="card content-box-card">
           <div className="card-body portfolio-card">
             <div className="top-info">
-              <div className="text">
+              <div className="text" style={{ display: "flex" }}>
                 <h1 className="main-title">Recent Articles and Publications</h1>
+                <Link href="new_article" className="lets-talk-btn">
+                  Add
+                  <svg
+                    className="icon"
+                    width={20}
+                    height={20}
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 4V16"
+                      stroke="white"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M4 10H16"
+                      stroke="white"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
               </div>
             </div>
             <div className="article-publications article-area">
               <div className="article-publications-main">
                 {loading ? (
-                  <p>Loading...</p>
+                  <div className="row">
+                    <p>Loading...</p>
+                  </div>
                 ) : (
                   <div className="row">
                     {blogItems.map((item) => (

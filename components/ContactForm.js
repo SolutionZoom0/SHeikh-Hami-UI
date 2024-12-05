@@ -1,82 +1,95 @@
 "use client";
-import emailjs from "emailjs-com";
+
 import { useState } from "react";
 
 const ContactForm = () => {
-  const [mailData, setMailData] = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
-    budget: "",
     subject: "",
     message: "",
-    template: "bentofolio tailwind react",
   });
 
-  const { name, email, budget, subject, message, template } = mailData;
+  const { name, email, subject, message } = formData;
   const [error, setError] = useState(null);
   const [fieldError, setFieldError] = useState(null);
+  const [success, setSuccess] = useState(false);
+
   const onChange = (e) =>
-    setMailData({ ...mailData, [e.target.name]: e.target.value });
-  const onSubmit = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(mailData);
-    if (
-      name.length === 0 ||
-      email.length === 0 ||
-      budget.length === 0 ||
-      subject.length === 0 ||
-      message.length === 0
-    ) {
+
+    // Validate fields
+    if (!name || !email || !subject || !message) {
       setFieldError(true);
-      setError(true);
+      setError("All fields are required.");
       clearError();
-    } else {
-      emailjs
-        .send(
-          "service_gsps4gw", // service id
-          "template_evezi69", // template id
-          mailData,
-          "Q3pccdLZhU-mZT7tQ" // public api
-        )
-        .then(
-          (response) => {
-            setError(false);
-            clearError();
-            setFieldError(false);
-            setMailData({
-              name: "",
-              email: "",
-              message: "",
-              subject: "",
-              budget: "",
-              template: "Bentofolio react",
-            });
+      return;
+    }
+
+    const requestBody = {
+      data: {
+        name,
+        email,
+        subject,
+        question: message,
+        answer: "",
+        publishDate: new Date(),
+      },
+      collection: "Fatwa",
+    };
+
+    try {
+      const response = await fetch(
+        "https://us-central1-sheikhhami-d00bd.cloudfunctions.net/createData",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
           },
-          (err) => {
-            console.log(err.text);
-          }
+          body: JSON.stringify(requestBody),
+        }
+      );
+
+      if (response.ok) {
+        setSuccess(true);
+        setFieldError(false);
+        setError(null);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        const errorData = await response.json();
+        setError(
+          errorData.message || "Something went wrong. Please try again."
         );
+      }
+    } catch (err) {
+      setError("Failed to submit the form. Please try again later.");
+    } finally {
+      clearError();
     }
   };
 
   const clearError = () => {
     setTimeout(() => {
       setError(null);
-    }, 2000);
+    }, 3000);
   };
+
   return (
     <div className="leave-comments-area">
       <div className="comments-box">
-        <form onSubmit={(e) => onSubmit(e)} id="contact-form">
+        <form onSubmit={onSubmit} id="contact-form">
           <div className="row gx-3">
             <div className="col-md-6">
               <div className="mb-4">
                 <label className="form-label">Name</label>
                 <input
                   name="name"
-                  onChange={(e) => onChange(e)}
+                  onChange={onChange}
                   value={name}
-                  required=""
+                  required
                   type="text"
                   className="form-control shadow-none"
                   placeholder="Enter your name"
@@ -88,9 +101,9 @@ const ContactForm = () => {
                 <label className="form-label">Email</label>
                 <input
                   name="email"
-                  onChange={(e) => onChange(e)}
+                  onChange={onChange}
                   value={email}
-                  required=""
+                  required
                   type="email"
                   className="form-control shadow-none"
                   placeholder="Enter your email"
@@ -102,23 +115,23 @@ const ContactForm = () => {
                 <label className="form-label">Subject</label>
                 <input
                   name="subject"
-                  onChange={(e) => onChange(e)}
+                  onChange={onChange}
                   value={subject}
-                  required=""
+                  required
                   type="text"
                   className="form-control shadow-none"
                   placeholder="Subject"
                 />
               </div>
             </div>
-
             <div className="col-md-12">
               <div className="mb-4">
                 <label className="form-label">Question</label>
                 <textarea
                   name="message"
-                  onChange={(e) => onChange(e)}
+                  onChange={onChange}
                   value={message}
+                  required
                   className="form-control shadow-none"
                   rows={4}
                   placeholder="Type details about your question"
@@ -156,15 +169,20 @@ const ContactForm = () => {
           </div>
         </form>
         <p
-          className={`ajax-response mb-0 ${error ? "error" : "success"}`}
-          style={{ display: error == null ? "none" : "block" }}
+          className={`ajax-response mb-0 ${
+            fieldError ? "error" : success ? "success" : ""
+          }`}
+          style={{ display: error || success ? "block" : "none" }}
         >
           {error
-            ? "Please complete the form and try again."
-            : "Thank You! Your message has been sent."}
+            ? error
+            : success
+            ? "Thank you! Your question has been submitted."
+            : ""}
         </p>
       </div>
     </div>
   );
 };
+
 export default ContactForm;

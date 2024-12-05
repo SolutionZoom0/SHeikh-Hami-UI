@@ -363,9 +363,10 @@ p {
   background-color: var(--background);
 }
 
-.header-area .header-right-info .lets-talk-btn {
+.lets-talk-btn {
   background-color: var(--black);
   border-radius: 8px;
+  height: 50%;
   padding: 12px 8px;
   font-size: 16px;
   font-weight: 600;
@@ -374,11 +375,11 @@ p {
   margin-left: 16px;
 }
 
-.header-area .header-right-info .lets-talk-btn:hover {
+.lets-talk-btn:hover {
   background-color: var(--primary);
 }
 
-.header-area .header-right-info .lets-talk-btn .icon {
+.lets-talk-btn .icon {
   margin-left: 8px;
 }
 
@@ -2158,11 +2159,11 @@ body {
   fill: none;
 }
 
-.dark-theme .header-area .header-right-info .lets-talk-btn {
+.dark-theme .lets-talk-btn {
   background-color: var(--dark-theme-black);
 }
 
-.dark-theme .header-area .header-right-info .lets-talk-btn:hover {
+.dark-theme .lets-talk-btn:hover {
   background-color: var(--primary);
 }
 
