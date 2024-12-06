@@ -363,6 +363,35 @@ p {
   background-color: var(--background);
 }
 
+/* Remove expand icon */
+.accordion-button::before {
+  display: none;
+}
+
+/* Set background color of the header to white */
+.accordion-button {
+  background-color: white !important;
+  border: 1px solid #ddd; /* optional: to give the border some contrast */
+  box-shadow: none !important;
+}
+
+/* Remove active selection color style */
+.accordion-button:not(.collapsed) {
+  background-color: white !important;
+  color: inherit;
+  box-shadow: none !important;
+}
+
+/* Prevent hover background color change */
+.accordion-button:hover {
+  background-color: white !important;
+}
+
+/* Add spacing at the top of the accordion */
+.accordion {
+  margin-top: 10% !important;
+}
+
 .lets-talk-btn {
   background-color: var(--black);
   border-radius: 8px;
@@ -1506,6 +1535,14 @@ body {
 
 .content-box-card .frequently-asked-questions .accordion-button::after {
   display: none;
+}
+
+.accordion-item .accordion-button::after {
+  display: none;
+}
+
+.accordion-item {
+  margin-top: 10px;
 }
 
 /*=============================

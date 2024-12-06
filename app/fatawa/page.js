@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import FatwaItem from "@/components/FatwaItem";
 import BentoFolioLayout from "@/layout/BentoFolioLayout";
 
 const POSTS_PER_PAGE = 10;
@@ -16,15 +15,16 @@ async function fetchFatwaItems(page) {
     throw new Error("Failed to fetch data");
   }
 
-  const data = await response.json(); // Default to 100 if header is missing
+  const data = await response.json();
   return { data: data };
 }
 
-export default function BlogPage() {
+export default function FatawaPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [FatwaItems, setFatwaItems] = useState([]);
   const [totalPosts, setTotalPosts] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [expandedItemId, setExpandedItemId] = useState(null);
 
   const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
 
@@ -49,6 +49,10 @@ export default function BlogPage() {
     setCurrentPage(page);
   };
 
+  const toggleAccordion = (itemId) => {
+    setExpandedItemId(expandedItemId === itemId ? null : itemId); // Toggle expand/collapse
+  };
+
   return (
     <BentoFolioLayout>
       <div className="col-xl-8">
@@ -64,9 +68,40 @@ export default function BlogPage() {
                 {loading ? (
                   <p>Loading...</p>
                 ) : (
-                  <div className="row">
+                  <div className="accordion mt-4" id="accordionExample">
                     {FatwaItems.map((item) => (
-                      <FatwaItem key={item.id} item={item} />
+                      <div className="accordion-item" key={item.id}>
+                        <h2
+                          className="accordion-header"
+                          id={`heading${item.id}`}
+                        >
+                          <button
+                            className="accordion-button"
+                            type="button"
+                            onClick={() => toggleAccordion(item.id)}
+                            aria-expanded={
+                              expandedItemId === item.id ? "true" : "false"
+                            }
+                            aria-controls={`collapse${item.id}`}
+                          >
+                            {item.question}
+                          </button>
+                        </h2>
+                        <div
+                          id={`collapse${item.id}`}
+                          className={`accordion-collapse collapse ${
+                            expandedItemId === item.id ? "show" : ""
+                          }`}
+                          aria-labelledby={`heading${item.id}`}
+                          data-bs-parent="#accordionExample"
+                        >
+                          <div className="accordion-body">
+                            <p>
+                              {item.answer ? item.answer : "No answers yet"}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     ))}
                   </div>
                 )}
