@@ -35,6 +35,7 @@ const page = () => {
                 <h1 className="main-title">
                   Videos / <span>Lessons</span>
                 </h1>
+                <br />
                 <p>
                   Al-Sheikh Mohammad Motaz has launched a weekly series at the
                   Roswell Community Center, where he explains Al-Majmoo by Imam

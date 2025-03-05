@@ -2,16 +2,16 @@ import Link from "next/link";
 
 const BlogItem = ({ item }) => {
   return (
-    <div className="col-lg-6" key={item.id}>
+    <div className="col-lg-12" key={item.id}>
       <div className="article-publications-item">
-        <div className="text">
+        <div
+          className="text"
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
           <Link href={item.URL} target="_blank" className="title">
             {item.title}
           </Link>
-          <ul className="list-unstyled">
-            <li>{item.duration} read</li>
-            <li>{item.publishDate}</li>
-          </ul>
+          <p>{item.category}</p>
         </div>
       </div>
     </div>

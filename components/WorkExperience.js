@@ -1,41 +1,62 @@
-const Experience = () => {
-  const experiancesItems = [
-    {
-      id: 1,
-      title: "Feqh",
-      subTitle: "Learn islam rule basics for kids",
-      date: "2021-2024",
-    },
-    {
-      id: 2,
-      title: "Feqh",
-      subTitle: "Learn islam rule basics for kids",
-      date: "2019-2021",
-    },
-    {
-      id: 3,
-      title: "Feqh",
-      subTitle: "Learn islam rule basics for kids",
-      date: "2018-2019",
-    },
-    {
-      id: 4,
-      title: "Feqh",
-      subTitle: "Learn islam rule basics for kids",
-      date: "2017-2018",
-    },
-  ];
+"use client";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+
+const Experience = ({ title }) => {
+  console.log(title);
+  const [experiancesItems, setexperiancesItems] = useState([]);
+  useEffect(() => {
+    const loadBlogItems = async () => {
+      try {
+        const { data } = await fetchBlogItems();
+        setexperiancesItems(data.data);
+      } catch (error) {
+        console.error("Error fetching blog items:", error);
+      }
+    };
+
+    loadBlogItems();
+  }, []);
+  async function fetchBlogItems(page) {
+    const response = await fetch(
+      `https://us-central1-sheikhhami-d00bd.cloudfunctions.net/readData?collection=${
+        title === "Fatawas" ? "Fatwa" : "Article"
+      }&_start=0&_limit=10`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    const data = await response.json(); // Default to 100 if header is missing
+    return { data: data };
+  }
   return (
     <ul className="work-experiance-slider list-unstyled">
       {experiancesItems.map((item) => (
         <li key={item.id}>
-          <div className="date">
-            <p>{item.date}</p>
-          </div>
           <div className="info">
-            <div className="text">
-              <h4 className="title">{item.title}</h4>
-              <h6 className="subtitle">{item.subTitle}</h6>
+            <div
+              className="text"
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "100%",
+              }}
+            >
+              <h4 className="title">
+                {title === "Fatawas" ? (
+                  <Link href="fatawa" target="_blank" className="title">
+                    {item.question}
+                  </Link>
+                ) : (
+                  <Link href={item.URL} target="_blank" className="title">
+                    {item.title}
+                  </Link>
+                )}
+              </h4>
+              <h6 className="subtitle">
+                {title === "Fatawas" ? item.name : item.category}
+              </h6>
             </div>
           </div>
         </li>
@@ -77,7 +98,9 @@ const WorkExperience = ({ title }) => {
               </a>
             </p>
           )}
-          {title !== "Videos" && title !== "Books" && <Experience />}
+          {title !== "Videos" && title !== "Books" && (
+            <Experience title={title} />
+          )}
         </div>
       </div>
     </div>

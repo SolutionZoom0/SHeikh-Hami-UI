@@ -32,6 +32,7 @@ const page = () => {
                 <h1 className="main-title">
                   Check Out My Latest <span>Books</span>
                 </h1>
+                <br />
                 <p>
                   Al-Sheikh Mohammad Motaz has written several notable works,
                   including Echoes of Eternity, which explores Quranic stories,

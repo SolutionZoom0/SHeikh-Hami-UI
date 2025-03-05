@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import BlogItem from "@/components/BlogItem";
 import BentoFolioLayout from "@/layout/BentoFolioLayout";
 import Link from "next/link";
+import useAuth from "@/hooks/useAuth";
 
-const POSTS_PER_PAGE = 10;
+const POSTS_PER_PAGE = 5;
 
 async function fetchBlogItems(page) {
   const start = (page - 1) * POSTS_PER_PAGE;
@@ -29,6 +30,7 @@ export default function BlogPage() {
   const [blogItems, setBlogItems] = useState([]);
   const [totalPosts, setTotalPosts] = useState(0);
   const [loading, setLoading] = useState(false);
+  const user = useAuth();
 
   const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
 
@@ -59,34 +61,20 @@ export default function BlogPage() {
         <div className="card content-box-card">
           <div className="card-body portfolio-card">
             <div className="top-info">
-              <div className="text" style={{ display: "flex" }}>
+              <div
+                className="text"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
                 <h1 className="main-title">Recent Articles and Publications</h1>
-                <Link href="new_article" className="lets-talk-btn">
-                  Add
-                  <svg
-                    className="icon"
-                    width={20}
-                    height={20}
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M10 4V16"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M4 10H16"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </Link>
+                {user.role === "Admin" && (
+                  <Link href="new_article" className="lets-talk-btn">
+                    Add Article
+                  </Link>
+                )}
               </div>
             </div>
             <div className="article-publications article-area">

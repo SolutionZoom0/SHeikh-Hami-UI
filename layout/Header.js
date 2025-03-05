@@ -3,8 +3,11 @@ import { bentofolioUtility } from "@/utility";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { signInWithGoogle, signOutUser } from "../lib/firebase";
+import useAuth from "../hooks/useAuth";
 
 const Header = () => {
+  const user = useAuth();
   useEffect(() => {
     bentofolioUtility.imgToSVG();
   }, []);
@@ -201,30 +204,39 @@ const Header = () => {
                 </button>
                 <Link href="contact" className="lets-talk-btn">
                   Ask Al-Sheikh
-                  <svg
-                    className="icon"
-                    width={20}
-                    height={20}
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M17.5 11.6665V6.6665H12.5"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M17.5 6.6665L10 14.1665L2.5 6.6665"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
                 </Link>
+                <div className="header-right-info d-flex align-items-center">
+                  {!user.user && (
+                    <button
+                      className="theme-control-btn"
+                      onClick={signInWithGoogle}
+                    >
+                      <img
+                        src="/assets/img/icons/google-icon.png"
+                        alt="Google Icon"
+                        width="30px"
+                      />
+                    </button>
+                  )}
+                  {user.user && (
+                    <button className="theme-control-btn" onClick={signOutUser}>
+                      {user.role !== "Admin" && (
+                        <img
+                          src="/assets/img/icons/user.png"
+                          alt="Google Icon"
+                          width="30px"
+                        />
+                      )}
+                      {user.role === "Admin" && (
+                        <img
+                          src="/assets/img/icons/admin.png"
+                          alt="Google Icon"
+                          width="30px"
+                        />
+                      )}
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
             <div

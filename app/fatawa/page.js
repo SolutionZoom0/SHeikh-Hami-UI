@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import BentoFolioLayout from "@/layout/BentoFolioLayout";
+import Link from "next/link";
+import useAuth from "@/hooks/useAuth";
 
 const POSTS_PER_PAGE = 10;
 
@@ -22,9 +24,14 @@ async function fetchFatwaItems(page) {
 export default function FatawaPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [FatwaItems, setFatwaItems] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
   const [totalPosts, setTotalPosts] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [answer, setAnswer] = useState("");
   const [expandedItemId, setExpandedItemId] = useState(null);
+  const [expandedAnswers, setExpandedAnswers] = useState({});
+  const user = useAuth();
+  const ANSWER_PREVIEW_LENGTH = 200;
 
   const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
 
@@ -43,14 +50,22 @@ export default function FatawaPage() {
     };
 
     loadFatwaItems();
-  }, [currentPage]);
+  }, [currentPage, isEditing]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
   const toggleAccordion = (itemId) => {
-    setExpandedItemId(expandedItemId === itemId ? null : itemId); // Toggle expand/collapse
+    setIsEditing(false);
+    setExpandedItemId(expandedItemId === itemId ? null : itemId);
+  };
+
+  const toggleReadMore = (itemId) => {
+    setExpandedAnswers((prev) => ({
+      ...prev,
+      [itemId]: !prev[itemId],
+    }));
   };
 
   return (
@@ -58,19 +73,20 @@ export default function FatawaPage() {
       <div className="col-xl-8">
         <div className="card content-box-card">
           <div className="card-body portfolio-card">
-            <div className="top-info">
-              <div className="text">
-                <h1 className="main-title">Recent Questions to the Sheikh</h1>
-              </div>
-            </div>
-            <div className="article-publications article-area">
-              <div className="article-publications-main">
-                {loading ? (
-                  <p>Loading...</p>
-                ) : (
-                  <div className="accordion mt-4" id="accordionExample">
-                    {FatwaItems.map((item) => (
-                      <div className="accordion-item" key={item.id}>
+            <h1 className="main-title">Recent Questions to the Sheikh</h1>
+            <div className="accordion mt-4" id="accordionExample">
+              {loading ? (
+                <p>Loading...</p>
+              ) : (
+                FatwaItems.map(
+                  (item) =>
+                    (item.answer || user.role === "Admin") && (
+                      <div
+                        className={`accordion-item ${
+                          !item.answer ? "unanswered" : ""
+                        }`}
+                        key={item.id}
+                      >
                         <h2
                           className="accordion-header"
                           id={`heading${item.id}`}
@@ -96,77 +112,119 @@ export default function FatawaPage() {
                           data-bs-parent="#accordionExample"
                         >
                           <div className="accordion-body">
-                            <p>
-                              {item.answer ? item.answer : "No answers yet"}
-                            </p>
+                            {!isEditing ? (
+                              <>
+                                <p
+                                  className={
+                                    !item.answer
+                                      ? "text-danger font-weight-bold"
+                                      : ""
+                                  }
+                                >
+                                  {item.answer ? (
+                                    expandedAnswers[item.id] ||
+                                    item.answer.length <=
+                                      ANSWER_PREVIEW_LENGTH ? (
+                                      item.answer
+                                    ) : (
+                                      <>
+                                        {item.answer.slice(
+                                          0,
+                                          ANSWER_PREVIEW_LENGTH
+                                        )}
+                                        ...
+                                        <Link
+                                          href="#"
+                                          onClick={(e) => {
+                                            e.preventDefault();
+                                            toggleReadMore(item.id);
+                                          }}
+                                        >
+                                          Read More
+                                        </Link>
+                                      </>
+                                    )
+                                  ) : (
+                                    "No answer yet"
+                                  )}
+                                </p>
+                                {user.role === "Admin" && (
+                                  <Link
+                                    href="#"
+                                    className="btn btn-primary btn-sm"
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      setIsEditing(true);
+                                      setAnswer(item.answer || "");
+                                    }}
+                                  >
+                                    {item.answer ? "Edit" : "Reply"}
+                                  </Link>
+                                )}
+                              </>
+                            ) : (
+                              <>
+                                <textarea
+                                  name="title"
+                                  onChange={(e) => setAnswer(e.target.value)}
+                                  value={answer}
+                                  required
+                                  className="form-control shadow-none mt-2"
+                                  cols="30"
+                                  rows="5"
+                                />
+                                <Link
+                                  href="#"
+                                  className="btn btn-success btn-sm mt-2"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    // Save function call goes here
+                                    setIsEditing(false);
+                                  }}
+                                >
+                                  Save
+                                </Link>
+                              </>
+                            )}
                           </div>
                         </div>
                       </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-            <div className="pagination">
-              <ul className="list-unstyled">
-                {/* Previous Button */}
-                <li className="prev">
-                  {currentPage > 1 && (
-                    <button onClick={() => handlePageChange(currentPage - 1)}>
-                      <svg
-                        className="icon"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-                        ></path>
-                      </svg>
-                    </button>
-                  )}
-                </li>
-                {/* Page Numbers */}
-                {Array.from({ length: totalPages }, (_, i) => (
-                  <li key={i}>
-                    <button
-                      onClick={() => handlePageChange(i + 1)}
-                      className={currentPage === i + 1 ? "active" : ""}
-                    >
-                      {i + 1}
-                    </button>
-                  </li>
-                ))}
-                {/* Next Button */}
-                <li className="next">
-                  {currentPage < totalPages && (
-                    <button onClick={() => handlePageChange(currentPage + 1)}>
-                      <svg
-                        className="icon"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                        ></path>
-                      </svg>
-                    </button>
-                  )}
-                </li>
-              </ul>
+                    )
+                )
+              )}
             </div>
           </div>
         </div>
       </div>
+      <style jsx>{`
+        .accordion-item.unanswered .accordion-button {
+          background-color: #ffe5e5;
+          border-left: 4px solid red;
+          font-weight: bold;
+        }
+        .accordion-item.unanswered .accordion-body p {
+          color: red;
+        }
+        .accordion-button:hover {
+          background-color: #f8f9fa;
+        }
+        .accordion-button:focus {
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+        .btn {
+          padding: 5px 10px;
+          font-size: 14px;
+          border-radius: 5px;
+        }
+        .btn-primary {
+          background-color: #007bff;
+          border: none;
+        }
+        .btn-success {
+          background-color: #28a745;
+          border: none;
+        }
+      `}</style>
     </BentoFolioLayout>
   );
 }

@@ -363,16 +363,46 @@ p {
   background-color: var(--background);
 }
 
+/* Remove expand icon */
+.accordion-button::before {
+  display: none;
+}
+
+/* Set background color of the header to white */
+.accordion-button {
+  background-color: white !important;
+  border: 1px solid #ddd; /* optional: to give the border some contrast */
+  box-shadow: none !important;
+}
+
+/* Remove active selection color style */
+.accordion-button:not(.collapsed) {
+  background-color: white !important;
+  color: inherit;
+  box-shadow: none !important;
+}
+
+/* Prevent hover background color change */
+.accordion-button:hover {
+  background-color: white !important;
+}
+
 .lets-talk-btn {
   background-color: var(--black);
   border-radius: 8px;
-  height: 50%;
   padding: 12px 8px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--white);
   line-height: 1.2em;
-  margin-left: 16px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.top-info .lets-talk-btn,
+.accordion-body .lets-talk-btn {
+  background-color: var(--primary);
+  height: 80%;
 }
 
 .lets-talk-btn:hover {
@@ -657,6 +687,7 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+  width: 100%;
 }
 
 .work-experiance-card .work-experiance-slider li .info .icon {
@@ -822,11 +853,10 @@ body {
 }
 
 .content-box-card .top-info .main-title {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 600;
   color: var(--black);
   line-height: 0.9em;
-  margin-bottom: 24px;
 }
 
 .content-box-card .top-info .main-title span {
@@ -1279,11 +1309,10 @@ body {
 }
 
 .article-publications-item .text .title {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.3em;
   color: var(--black);
-  margin-bottom: 14px;
 }
 
 .article-publications-item .text .title:hover {
@@ -1506,6 +1535,14 @@ body {
 
 .content-box-card .frequently-asked-questions .accordion-button::after {
   display: none;
+}
+
+.accordion-item .accordion-button::after {
+  display: none;
+}
+
+.accordion-item {
+  margin-top: 10px;
 }
 
 /*=============================
@@ -1832,12 +1869,12 @@ body {
 ===============================*/
 
 .article-area {
-  margin-top: -40px !important;
+  margin-top: 0px !important;
 }
 
 .article-area .article-publications-item {
   margin: 0 !important;
-  margin-top: 40px !important;
+  margin-top: 20px !important;
 }
 
 .article-details-area .main-image {
@@ -2712,4 +2749,24 @@ body {
 .dark-theme .portfolio-details-area .prev-and-next-btn .btn:hover {
   background-color: var(--primary);
   color: var(--white);
+}
+
+.google-signin-btn {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.google-signin-btn:hover {
+  background-color: #f7f7f7;
 }

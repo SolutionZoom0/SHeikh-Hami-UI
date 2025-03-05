@@ -1,15 +1,8 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/article/page": "app/article/page.js",
-  "/about/page": "app/about/page.js",
-  "/blog/page": "app/blog/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/fatawa/page": "app/fatawa/page.js",
-  "/fatwa_details/page": "app/fatwa_details/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/new_article/page": "app/new_article/page.js",
   "/page": "app/page.js",
-  "/portfolio-details/page": "app/portfolio-details/page.js",
+  "/fatawa/page": "app/fatawa/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/services/page": "app/services/page.js",
   "/portfolio/page": "app/portfolio/page.js",
-  "/services/page": "app/services/page.js"
+  "/new_article/page": "app/new_article/page.js"
 }

@@ -1,6 +1,3 @@
-import ExpertArea from "@/components/ExpertArea";
-import Projects from "@/components/Projects";
-import Services from "@/components/Services";
 import WorkExperience from "@/components/WorkExperience";
 import BentoFolioLayout from "@/layout/BentoFolioLayout";
 const page = () => {
